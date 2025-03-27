@@ -505,7 +505,7 @@ nms_install(){
 	printf '%-*s %s\r ' $col "Building asterisk* (make menuselect)" "$NORMAL [ ... ] $NORMAL"
 
 	make menuselect.makeopts
-	menuselect/menuselect --disable BUILD_NATIVE --enable CORE-SOUNDS-EN-ALAW --enable CORE-SOUNDS-EN-GSM --enable CORE-SOUNDS-EN-WAV --enable CORE-SOUNDS-EN-G729 --enable CORE-SOUNDS-FR-ALAW --enable CORE-SOUNDS-FR-GSM --enable CORE-SOUNDS-FR-WAV --enable CORE-SOUNDS-FR-G729 --enable MOH-OPSOUND-ULAW --enable MOH-OPSOUND-ALAW --enable MOH-OPSOUND-GSM --enable MOH-OPSOUND-G729 --enable EXTRA-SOUNDS-EN-WAV --enable EXTRA-SOUNDS-EN-ALAW --enable EXTRA-SOUNDS-EN-GSM --enable EXTRA-SOUNDS-EN-G729 --enable EXTRA-SOUNDS-FR-WAV --enable EXTRA-SOUNDS-FR-ALAW --enable EXTRA-SOUNDS-FR-GSM --enable EXTRA-SOUNDS-FR-G729 save 
+	menuselect/menuselect --disable BUILD_NATIVE --enable CHAN_SIP --enable CORE-SOUNDS-EN-ALAW --enable CORE-SOUNDS-EN-GSM --enable CORE-SOUNDS-EN-WAV --enable CORE-SOUNDS-EN-G729 --enable CORE-SOUNDS-FR-ALAW --enable CORE-SOUNDS-FR-GSM --enable CORE-SOUNDS-FR-WAV --enable CORE-SOUNDS-FR-G729 --enable MOH-OPSOUND-ULAW --enable MOH-OPSOUND-ALAW --enable MOH-OPSOUND-GSM --enable MOH-OPSOUND-G729 --enable EXTRA-SOUNDS-EN-WAV --enable EXTRA-SOUNDS-EN-ALAW --enable EXTRA-SOUNDS-EN-GSM --enable EXTRA-SOUNDS-EN-G729 --enable EXTRA-SOUNDS-FR-WAV --enable EXTRA-SOUNDS-FR-ALAW --enable EXTRA-SOUNDS-FR-GSM --enable EXTRA-SOUNDS-FR-G729 save 
 	printf '%-*s %s\r ' $col "Building asterisk* (make)" "$NORMAL [ ... ] $NORMAL"
 	make >> /var/log/nixxis/installation.log 2>&1
 	printf '%-*s %s\r ' $col "Building asterisk* (make install)" "$NORMAL [ ... ] $NORMAL"
