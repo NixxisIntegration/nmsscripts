@@ -717,7 +717,7 @@ systemctl daemon-reload
 	printf '%-*s %s\n ' $col "Editing Sudoers" "$GREEN [ Done ] $NORMAL" 
 	printf '%-*s %s\n ' $col "Editing Sudoers" "$GREEN [ Done ] $NORMAL"  >> /var/log/nixxis/installation.log
 # Demande l'IP de l'utilisateur via whiptail
-IP=$(whiptail --inputbox "Veuillez entrer l'adresse IP de votre trunk PJSIP" 8 78 --title "Configuration Trunk PJSIP" 3>&1 1>&2 2>&3)
+IP=$(whiptail --inputbox "Veuillez entrer l'adresse IP de votre trunk SIP" 8 78 --title "Configuration Trunk SIP" 3>&1 1>&2 2>&3)
 
 # Vérifie si l'utilisateur a annulé
 if [ $? -eq 0 ]; then
@@ -732,6 +732,7 @@ PJSIP_CONFIG_FILE="/etc/asterisk/sip.conf"
 
 # Sauvegarde du fichier de configuration existant
 cp $PJSIP_CONFIG_FILE $PJSIP_CONFIG_FILE.bak
+rm $PJSIP_CONFIG_FILE
 
 # Ajoute la configuration du trunk PJSIP
 cat <<EOL >> $PJSIP_CONFIG_FILE
