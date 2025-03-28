@@ -716,7 +716,7 @@ systemctl daemon-reload
 	printf '%-*s %s\n ' $col "Editing Sudoers" "$GREEN [ Done ] $NORMAL" 
 	printf '%-*s %s\n ' $col "Editing Sudoers" "$GREEN [ Done ] $NORMAL"  >> /var/log/nixxis/installation.log
 # Demande l'IP de l'utilisateur via whiptail
-IP=$(whiptail --inputbox "Veuillez entrer l'adresse IP de votre trunk SIP" 8 78 --title "Configuration Trunk SIP" 3>&1 1>&2 2>&3)
+IP=$(whiptail --inputbox "Veuillez entrer l'adresse IP de votre AppServer" 8 78 --title "Configuration Trunk SIP" 3>&1 1>&2 2>&3)
 
 # Vérifie si l'utilisateur a annulé
 if [ $? -eq 0 ]; then
