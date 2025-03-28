@@ -727,8 +727,8 @@ else
     exit 1
 fi
 
-# Configuration du trunk PJSIP
-PJSIP_CONFIG_FILE="/etc/asterisk/pjsip.conf"
+# Configuration du trunk SIP
+PJSIP_CONFIG_FILE="/etc/asterisk/sip.conf"
 
 # Sauvegarde du fichier de configuration existant
 cp $PJSIP_CONFIG_FILE $PJSIP_CONFIG_FILE.bak
@@ -736,33 +736,33 @@ cp $PJSIP_CONFIG_FILE $PJSIP_CONFIG_FILE.bak
 # Ajoute la configuration du trunk PJSIP
 cat <<EOL >> $PJSIP_CONFIG_FILE
 [general]
-type=global
-user_agent=Nixxis
-
-[transport-udp]
-type=transport
-protocol=udp
-bind=0.0.0.0
+constantssrc=yes
+context=undefined
+allowoverlap=no
+udpbindaddr=0.0.0.0
+tcpenable=no
+tcpbindaddr=0.0.0.0
+transport=udp
+srvlookup=yes
+ignoresdpversion=yes
+t1min=500
+useragent=Nixxis
 
 [AppServer]
-type=endpoint
+type=friend
 context=nixxis
+fromdomain=$IP
+host=$IP
+dtmfmode=info
 disallow=all
 allow=alaw
-direct_media=no
-dtmf_mode=info
-from_domain=$IP
-transport=transport-udp
-aors=AppServer
-rtp_symmetric=yes
-rewrite_contact=yes
-trust_id_inbound=yes
-rpid_immediate=no
-
-[AppServer]
-type=aor
-contact=sip:$IP
-qualify_frequency=60
+directmedia=no
+canreinvite=no
+qualify=yes
+nat=no
+;sendrpid=yes
+trustrpid=yes
+rpid_update=no
 
 EOL
 useradd -r -d /var/lib/asterisk -g sounds sounds
