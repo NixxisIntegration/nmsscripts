@@ -50,7 +50,7 @@ osversion="0"
 osuname=`uname -r`
 osarch="32"
 #To be updated at each release
-NixxisUri="http://update.nixxis.net/v3.1/Install.3.1.2.zip"
+NixxisUri="https://raw.githubusercontent.com/NixxisIntegration/nmsscripts/refs/heads/main/Dialplan_Nixxis_3.2.zip"
 Asterisk="https://downloads.asterisk.org/pub/telephony/asterisk/old-releases/asterisk-20.9.0.tar.gz"
 AsteriskVersionComp="asterisk-20.9.0.tar.gz"
 AsteriskVersion="asterisk-20.9.0"
@@ -585,10 +585,9 @@ EOF
 	printf '%-*s %s\n ' $col "Unpacking Nixxis pack" "$GREEN [ Done ] $NORMAL" >> /var/log/nixxis/installation.log
 # Installing Nixxis Asterisk configuration files
 	printf '%-*s %s\r ' $col "Placing Nixxis pack elements" "$NORMAL [ ... ] $NORMAL"
-	cp -rf /usr/src/asterisk/nixxis/MediaServer/etc/* /etc >> /var/log/nixxis/installation.log 2>&1
-	cp -rf /usr/src/asterisk/nixxis/MediaServer/usr/* /usr >> /var/log/nixxis/installation.log 2>&1
-	cp -rf /usr/src/asterisk/nixxis/MediaServer/var/* /var >> /var/log/nixxis/installation.log 2>&1
-	cp -rf /usr/src/asterisk/nixxis/MediaServer/srv/* /srv >> /var/log/nixxis/installation.log 2>&1
+	cp -rf /usr/src/asterisk/nixxis/etc/* /etc >> /var/log/nixxis/installation.log 2>&1
+	cp -rf /usr/src/asterisk/nixxis/usr/* /usr >> /var/log/nixxis/installation.log 2>&1
+	cp -rf /usr/src/asterisk/nixxis/srv/* /srv >> /var/log/nixxis/installation.log 2>&1
 	chmod a+x /usr/sbin/* >> /var/log/nixxis/installation.log 2>&1
 	chmod a+x /srv/www/lighttpd/* >> /var/log/nixxis/installation.log 2>&1
 	dos2unix /srv/www/lighttpd/* >> /var/log/nixxis/installation.log 2>&1
