@@ -765,6 +765,7 @@ trustrpid=yes
 rpid_update=no
 
 EOL
+mv /etc/asterisk/extensions_sample.conf /etc/asterisk/extensions.conf
 useradd -r -d /var/lib/asterisk -g sounds sounds
 chown -R sounds.sounds /etc/asterisk /var/{lib,log,spool}/asterisk /usr/lib64/asterisk
 restorecon -vr {/etc/asterisk,/var/lib/asterisk,/var/log/asterisk,/var/spool/asterisk}
